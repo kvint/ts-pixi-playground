@@ -1,10 +1,12 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {TsConfigPathsPlugin} = require("awesome-typescript-loader");
+const path = require("path");
 
 const webpackConfig = {
     // other config...
     context: __dirname, // to automatically find tsconfig.json
     output: {
-        path: `${__dirname}/bin`,
+        path: path.resolve(__dirname, "bin"),
         filename: "js/[name].js"
     },
     entry: {
@@ -13,6 +15,12 @@ const webpackConfig = {
     },
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                use: ["source-map-loader"],
+                enforce: "pre",
+                exclude: /node_modules/
+            },
             {
                 test: /\.tsx?$/,
                 use: [
@@ -27,12 +35,6 @@ const webpackConfig = {
                     }
                 ],
                 exclude: /node_modules/
-            },
-            {
-                test: /\.js$/,
-                use: ["source-map-loader"],
-                enforce: "pre",
-                exclude: /node_modules/
             }
 
         ]
@@ -46,6 +48,16 @@ const webpackConfig = {
             hash: false,
             title: "Playground",
         }),
-    ]
+    ],
+    resolve: {
+        extensions: [".js", ".ts", ".tsx", ".css", ".scss", ".json"],
+        modules: ["node_modules"],
+        alias: {
+            "styles": path.resolve(__dirname, "src/styles/"),
+        },
+        plugins: [
+            new TsConfigPathsPlugin()
+        ],
+    }
 };
 module.exports = () => webpackConfig;

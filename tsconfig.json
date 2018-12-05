@@ -1,12 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "strictNullChecks": true,
     "target": "es5",
+    "module": "es6",
     "lib": ["es6", "dom"],
     "types": [],
-    "module": "commonjs",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -23,11 +23,9 @@
     "typeRoots": [
       "node_modules/@types",
       "typings"
-    ],
-    "paths": {
-
-    }
+    ]
   },
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude" : [
     "./node_modules/**/*"
   ]
