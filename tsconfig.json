@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strictNullChecks": true,
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "types": [],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": false,
+    "noResolve": false,
+    "noUnusedParameters": false,
+
+    "importHelpers": true,
+
+    "declaration": false,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "typings"
+    ],
+    "paths": {
+
+    }
+  },
+  "exclude" : [
+    "./node_modules/**/*"
+  ]
+}
